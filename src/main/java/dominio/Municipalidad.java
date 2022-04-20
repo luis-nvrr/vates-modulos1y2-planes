@@ -27,9 +27,8 @@ public class Municipalidad {
     }
 
     public float agregarPago(int planId, Pago pago) {
-        Plan plan = Optional.of(
-                this.planes.get(planId)
-                ).orElseThrow(() -> new RuntimeException("Id de plan no válido"));
+        Plan plan = Optional.ofNullable(this.planes.get(planId))
+                .orElseThrow(() -> new RuntimeException("Id de plan no válido"));
         plan.agregarPago(pago);
         return plan.calcularVuelto(pago);
     }
