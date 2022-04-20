@@ -39,9 +39,9 @@ public class Plan {
 
     private void validarPago(Pago pago) {
       if (!pago.tieneImporteMayorOIgualAlTotal(this.calcularMontoDeCuota()))
-          throw new RuntimeException("El pago no puede ser menor que la cuota más intereses, el total es: " + total);
+          throw new RuntimeException("El pago no puede ser menor que la cuota más intereses, el monto a pagar es: " + pago.calcularTotalConIntereses(this.calcularMontoDeCuota()));
 
-      if (pago.getDemora() < 0 || pago.getImporte() <0 || pago.getInteresesAdicionales() < 0)
+      if (pago.getDemora() < 0 || pago.getImporte() < 0)
           throw new RuntimeException("Los datos negativos son inválidos");
     }
 

@@ -4,11 +4,12 @@ public class Pago {
     private int id;
     private final int demora;
     private final float importe;
-    private float interesesAdicionales;
+    private final float interesesAdicionales;
 
     public Pago(int demora, float importe) {
         this.demora = demora;
         this.importe = importe;
+        this.interesesAdicionales = 0.5f * demora;
     }
 
     public void setId(int id ) {
@@ -27,9 +28,8 @@ public class Pago {
         return demora;
     }
 
-    public float calcularInteresesAdicionales(float montoCuota) {
-        this.interesesAdicionales = 0.5f * demora * montoCuota;
-        return interesesAdicionales;
+    public float calcularTotalConIntereses(float montoCuota) {
+        return montoCuota * (1f + this.interesesAdicionales);
     }
 
     public float getInteresesAdicionales() {
@@ -37,7 +37,7 @@ public class Pago {
     }
 
     public boolean tieneImporteMayorOIgualAlTotal(float cuota) {
-        return this.importe >= (cuota+this.calcularInteresesAdicionales(cuota));
+        return this.importe >= this.calcularTotalConIntereses(cuota);
     }
 
     @Override
