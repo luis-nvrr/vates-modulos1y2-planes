@@ -13,9 +13,9 @@ public class Simular implements OpcionDeMenu{
     private final String descripcion;
     private final Municipalidad municipalidad;
 
-    public Simular(String descripcion, Municipalidad municipalidad) {
+    public Simular(String descripcion) {
         this.descripcion = descripcion;
-        this.municipalidad = municipalidad;
+        this.municipalidad = new Municipalidad();
     }
 
     @Override

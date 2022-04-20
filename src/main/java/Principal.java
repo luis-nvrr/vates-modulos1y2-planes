@@ -19,7 +19,7 @@ public class Principal {
         opcionesMap.put(5, new MostrarDeuda("Mostrar deuda total", municipalidad));
         opcionesMap.put(6, new MostrarPagosDeContribuyente("Mostrar pagos de un contribuyente", municipalidad, scanner));
         opcionesMap.put(7, new MostrarPromedioIntereses("Mostrar promedio general de intereses adicionales", municipalidad));
-        opcionesMap.put(8, new Simular("Simular ejecucion", municipalidad));
+        opcionesMap.put(8, new Simular("Simular ejecucion"));
         opcionesMap.put(OPCION_SALIR, new Salir("Terminar ejecución"));
 
         while(true) {
